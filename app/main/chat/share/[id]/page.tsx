@@ -7,8 +7,8 @@ import { ChatList } from '@/components/chat-list'
 import { FooterText } from '@/components/footer'
 import { AI, UIState, getUIStateFromAIState } from '@/lib/chat/actions'
 
-export const runtime = 'edge'
-export const preferredRegion = 'home'
+// export const runtime = 'edge'
+// export const preferredRegion = 'home'
 
 interface SharePageProps {
   params: {
@@ -16,28 +16,28 @@ interface SharePageProps {
   }
 }
 
-export async function generateMetadata({
-  params
-}: SharePageProps): Promise<Metadata> {
-  const chat = await getSharedChat(params.id)
+// export async function generateMetadata({
+//   params
+// }: SharePageProps): Promise<Metadata> {
+//   const chat = await getSharedChat(params.id)
 
-  return {
-    title: chat?.title.slice(0, 50) ?? 'Chat'
-  }
-}
+//   return {
+//     title: chat?.title.slice(0, 50) ?? 'Chat'
+//   }
+// }
 
 export default async function SharePage({ params }: SharePageProps) {
-  const chat = await getSharedChat(params.id)
+  // const chat = await getSharedChat(params.id)
 
-  if (!chat || !chat?.sharePath) {
-    notFound()
-  }
+  // if (!chat || !chat?.sharePath) {
+  //   notFound()
+  // }
 
-  const uiState: UIState = getUIStateFromAIState(chat)
+  // const uiState: UIState = getUIStateFromAIState(chat)
 
   return (
     <>
-      <div className="flex-1 space-y-6">
+      {/* <div className="flex-1 space-y-6">
         <div className="border-b bg-background px-4 py-6 md:px-6 md:py-8">
           <div className="mx-auto max-w-2xl">
             <div className="space-y-1 md:-mx-8">
@@ -52,7 +52,7 @@ export default async function SharePage({ params }: SharePageProps) {
           <ChatList messages={uiState} isShared={true} />
         </AI>
       </div>
-      <FooterText className="py-8" />
+      <FooterText className="py-8" /> */}
     </>
   )
 }
