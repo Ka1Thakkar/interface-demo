@@ -41,28 +41,28 @@ export async function getChat(id: string, userId: string) {
 }
 
 export async function removeChat({ id, path }: { id: string; path: string }) {
-  const session = await auth()
+  // const session = await auth()
 
-  if (!session) {
-    return {
-      error: 'Unauthorized'
-    }
-  }
+  // if (!session) {
+  //   return {
+  //     error: 'Unauthorized'
+  //   }
+  // }
 
   //Convert uid to string for consistent comparison with session.user.id
   const uid = String(await kv.hget(`chat:${id}`, 'userId'))
 
-  if (uid !== session?.user?.id) {
-    return {
-      error: 'Unauthorized'
-    }
-  }
+  // if (uid !== session?.user?.id) {
+  //   return {
+  //     error: 'Unauthorized'
+  //   }
+  // }
 
-  await kv.del(`chat:${id}`)
-  await kv.zrem(`user:chat:${session.user.id}`, `chat:${id}`)
+  // await kv.del(`chat:${id}`)
+  // await kv.zrem(`user:chat:${session.user.id}`, `chat:${id}`)
 
-  revalidatePath('/')
-  return revalidatePath(path)
+  // revalidatePath('/')
+  // return revalidatePath(path)
 }
 
 export async function clearChats() {
