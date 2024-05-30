@@ -16,7 +16,6 @@ import remarkGfm from 'remark-gfm'
 import rehype from 'rehype'
 
 const Main = () => {
-
     const { selected, setSelected } = useSidebar()
     useEffect(() => {
         setSelected(1)
@@ -32,7 +31,7 @@ const Main = () => {
                     transition={{ ease: 'easeInOut', duration: 0.5 }}
                     className="w-full border-2 border-black/10 p-5 lg:p-10 xl:px-16 min-h-screen"
                 >
-                    <div className={cn("flex flex-col w-full py-5 gap-10")}>
+                    <div className={cn("flex flex-col w-full py-10 gap-10")}>
                         {messages.map(m => (
                             <div  key={m.id} className={cn("flex flex-col gap-5", m.role === 'user' ? "items-end" : "items-start")}>
                                 <div className={cn("flex items-center gap-5", m.role === 'user' ? "flex-row-reverse" : "flex-row")}>
