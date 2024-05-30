@@ -11,7 +11,6 @@ const System = () => {
                 <LinkComponent label="Notification Settings" link="" variant="" />
                 <LinkComponent label="Account Deletion" link="/" variant="delete" />
             </div>
-
         </div>
     );
 }

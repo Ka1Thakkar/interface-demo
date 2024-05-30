@@ -18,7 +18,6 @@ const LinkComponent = ({ label, link, variant }: LinkComponentProps) => {
                     <ArrowSquareOut className={cn(variant === "delete" && "hidden")} />
                 </div>
             </Link>
-
         </div>
     );
 

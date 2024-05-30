@@ -11,7 +11,6 @@ const Billing = () => {
                 <LinkComponent label="Payment Method" link="" variant="" />
                 <LinkComponent label="Billing History" link="" variant="" />
             </div>
-
         </div>
     );
 }

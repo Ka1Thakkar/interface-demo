@@ -15,12 +15,11 @@ const IntegrationModal = () => {
     const [validated, setValidated] = useState(false)
     return (
         <motion.div
-
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ ease: 'easeInOut', duration: 0.15 }}
-            className="absolute top-0 w-full h-full z-[999] flex items-center justify-center backdrop-blur-[2.5px] bg-white/5"
+            initial={{ opacity: 0, backdropFilter : 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter : 'blur(2.5px)' }}
+            exit={{ opacity: 0, backdropFilter : 'blur(0px)' }}
+            transition={{ ease: 'easeInOut', duration: 0.2 }}
+            className="absolute top-0 w-full h-full z-[999] flex items-center justify-center backdrop-blur-[2.5px]"
         >
             <div className="flex flex-col items-center justify-center gap-10 w-fit shadow-md shadow-black/25 p-16 rounded-xl bg-white relative">
                 <button onClick={() => { toggleOpen(false) }} className="absolute top-5 right-5 text-black">

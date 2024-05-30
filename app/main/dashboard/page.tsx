@@ -12,7 +12,7 @@ export default function Home() {
         setSelected(0)
     }, [selected])
   return (
-    <main className="w-full overflow-y-auto h-full transition-all ease-in-out min-h-screen">
+    <main className="w-full overflow-y-auto h-full transition-all ease-in-out">
       <Navigation header="Dashboard" />
       <Main />
     </main>

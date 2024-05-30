@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useMediaQuery } from 'usehooks-ts';
 import { useRouter } from 'next/navigation';
+import { useIntegrationModal } from '../../integrations/Providers/useIntegrationModal';
 
 const routeElements = [
     {
@@ -81,6 +82,7 @@ const settingsElement = [
 const Sidebar = () => {
     const { selected, setSelected } = useSidebar()
     const router = useRouter()
+    const { isOpen, toggleOpen } = useIntegrationModal()
     return (
         <aside
             className={cn('h-screen bg-white min-w-fit border-r-2 border-black/10 px-5 lg:px-7 py-5 transition-all ease-in-out lg:py-10 overflow-y-auto')}>
@@ -100,8 +102,7 @@ const Sidebar = () => {
 
                                             router.push(`/main/${element.name.toLowerCase()}`)
                                             setSelected(index)
-                                        } else {
-                                            console.log('Not allowed')
+                                            toggleOpen(false)
                                         }
                                     }}
                                 >
