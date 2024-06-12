@@ -7,13 +7,13 @@ import Main from "./_components/MainContent/Main";
 import { useEffect } from "react";
 
 export default function Home() {
-  const {selected, setSelected} = useSidebar()
-    useEffect(() => {
-        setSelected(0)
-    }, [selected])
+  const { selected, setSelected } = useSidebar()
+  useEffect(() => {
+    setSelected(0)
+  }, [selected])
   return (
     <main className="w-full overflow-y-auto h-full transition-all ease-in-out">
-      <Navigation header="Dashboard" />
+      <Navigation bot={false} header="Dashboard" />
       <Main />
     </main>
   );

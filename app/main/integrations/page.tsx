@@ -19,7 +19,7 @@ const Main = () => {
     return (
         <>
             <div className={cn("w-full relative overflow-y-auto h-full transition-all ease-in-out")}>
-                <Navigation header="Integrations" />
+                <Navigation bot={false} header="Integrations" />
                 <div className={cn("h-fit w-full flex flex-col items-center justify-center overflow-y-auto p-3 transition-all ease-in-out relative")}>
                     <motion.div
                         initial={{ opacity: 0 }}

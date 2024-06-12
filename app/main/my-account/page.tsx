@@ -11,7 +11,7 @@ const MyAccount = () => {
     }, [selected])
     return (
         <main className="w-full overflow-y-auto h-full transition-all ease-in-out">
-            <Navigation header="My Account" />
+            <Navigation bot={false} header="My Account" />
             <Details />
         </main>
     );

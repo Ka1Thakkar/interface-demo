@@ -1,18 +1,34 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import ProfilePicture from '@/public/Agent_Rio.png'
+import ProfilePicture from '@/public/User.png'
 import Image from 'next/image';
 import { countryOptions } from './countryList'
 import { CaretUpDown } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getUserDetails } from '@/app/_Providers/getUserDetails';
+// import { getUserDetails } from '@/app/_Providers/getUserDetails';
+// import { getUserDetails } from '@/app/_Providers/getUserDetails';
+// import { createClient } from '@/utils/supabase/server';
+// import { getUserDetails } from '@/app/userDetails/actions';
+// import { getUserDetails } from '@/app/userDetails/actions';
 
 const General = () => {
     const [country, setCountry] = useState('India')
-    const [fullName, setFullName] = useState('Rebhav Bharadwaj')
-    const [email, setEmail] = useState('rebhav@getinterface.tech')
+    const [fullName, setFullName] = useState('')
+    const [email, setEmail] = useState('')
+    useEffect(() => {
+        getUserDetails().then(details => {
+            if (Array.isArray(details) && details.length > 0) {
+                const user = details[0];
+                setFullName(user.company_name)
+                setEmail(user.email)
+                // setCountry(user.country)
+                // console.log(details)
+            }
+        });
+        // console.log(fullName)
+    }, [])
     return (
         <div className='border-2 border-black/10 rounded-lg'>
-
-
             <div className='border-b-2 border-black/10 p-5'>
                 <div className="text-brandpurple text-2xl font-semibold underline-offset-4 underline">General</div>
             </div>
@@ -21,8 +37,7 @@ const General = () => {
                     <Image src={ProfilePicture} alt="Profile Picture" quality={100} className="rounded-full w-[100px] h-[100px] shadow-md shadow-black/10 border-1 border-black/10" />
                     <div className="rounded-2xl justify-center items-start gap-2 flex flex-col">
                         <div className="text-black text-2xl font-semibold leading-snug">Profile Picture</div>
-
-                        <button className="text-white bg-black text-base py-2 px-5 leading-snug rounded-lg">Upload picture</button>
+                        {/* <button className="text-white bg-black text-base py-2 px-5 leading-snug rounded-lg">Upload picture</button> */}
                     </div>
                 </div>
                 <label className='flex flex-col gap-2 text-lg font-bold'>

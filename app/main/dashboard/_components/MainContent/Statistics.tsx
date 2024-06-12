@@ -9,7 +9,7 @@ interface StatisticsProps {
 
 const Statistics = ({ title, value, percentage }: StatisticsProps) => {
     return (
-        <div className="border-2 border-black/10 px-5 py-7 rounded-lg text-left flex flex-col gap-2 bg-gradient-to-br from-black/[.015] to-black/0 h-full justify-center w-1/2">
+        <div className="border-2 border-black/10 px-5 py-7 rounded-lg text-left flex flex-col gap-2 bg-gradient-to-br from-black/[.015] to-black/0 h-full justify-center xl:w-1/2">
             <p className="font-semibold text-2xl">
                 {title}
             </p>
@@ -22,12 +22,12 @@ const Statistics = ({ title, value, percentage }: StatisticsProps) => {
                         duration={1.5}
                         separator=", "
                         prefix=""
-                        suffix="hr"
+                        suffix={title === "Workflows Automated" ? "" : "hr"}
                         className="text-4xl font-bold"
                         useEasing={true}
                         />
                 </div>
-                <div className="flex flex-col text-[#ABE423] items-end">
+                {/* <div className="flex flex-col text-[#ABE423] items-end">
                     <p>
                         <span className="text-2xl">+</span>
                         <span className="text-2xl font-semibold">
@@ -35,7 +35,7 @@ const Statistics = ({ title, value, percentage }: StatisticsProps) => {
                         </span><span className="text-2xl"> %</span>
                     </p>
                     <TrendUp weight="fill" size={32} />
-                </div>
+                </div> */}
             </div>
         </div>
     );
